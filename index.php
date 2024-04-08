@@ -21,30 +21,30 @@
             "Varsovie",
             "Prague"
         ];
-
-        $links = [
-            ["paris", "vienna"],
-            ["vienna", "bratislava"],
-            ["bratislava", "londres"],
-            ["londres", "berlin"],
-            ["berlin", "madrid"],
-            ["madrid", "rome"],
-            ["rome", "lisbonne"],
-            ["lisbonne", "budapest"],
-            ["budapest", "varsovie"],
-            ["varsovie", "prague"],
-            ["prague", "paris"]
-        ];
-
         $matrice = [];
 
         for ($i = 0; $i < count($ville); $i++) {
+            
             $matrice[$ville[$i]] = [];
+            
             for ($j = 0; $j < count($ville); $j++) {
+                $areConnected = random_int(0, 1);
                 if ($i == $j) {
                     $matrice[$ville[$i]][$ville[$j]] = 0;
-                }else {
+                }elseif ($areConnected == 1) {
                     $matrice[$ville[$i]][$ville[$j]] = random_int(0, 500);
+                }elseif ($areConnected == 0) {
+                    $matrice[$ville[$i]][$ville[$j]] = 0;
+                }
+            }
+        }
+
+        for ($i = 0; $i < count($ville); $i++) {
+            for ($j = 0; $j < count($ville); $j++) {
+                if ($matrice[$ville[$j]][$ville[$i]] == 0) {
+                    $matrice[$ville[$j]][$ville[$i]] = $matrice[$ville[$i]][$ville[$j]];
+                }elseif ($matrice[$ville[$j]][$ville[$i]] != 0) {
+                    $matrice[$ville[$i]][$ville[$j]] = $matrice[$ville[$j]][$ville[$i]];
                 }
             }
         }
