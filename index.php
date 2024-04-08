@@ -58,7 +58,7 @@
 
     <table style="border-collapse: collapse;">
         <?php
-            for ($i = 0; $i <= count($matrice); $i++) {
+            for ($i = 0; $i <= count($matrice)+1; $i++) {
                 if ($i >= 1) {
                     echo "<tr><th>" . $ville[$i-1] . "</th>";
                 }
