@@ -53,22 +53,25 @@
 
     <table style="border-collapse: collapse;">
         <?php
-            for ($i = 0; $i < count($matrice)+1; $i++) {
+            for ($i = 0; $i <= count($matrice); $i++) {
                 if ($i >= 1) {
                     echo "<tr><th>" . $ville[$i-1] . "</th>";
                 }
                 if ($i > 0) {
                     $i1 = $i-1;
                 }
-                for ($j = 0; $j < count($matrice[$ville[$i]]); $j++) {
+                for ($j = 0; $j < count($ville); $j++) {
                     if ($i == 0 && $j == 0) {
                         echo "<th></th>";
-                        echo "<th>" . $ville[$j] . "</th>";
                     }
                     elseif ($i == 0 && $j >= 1) {
-                        echo "<th>" . $ville[$j] . "</th>";
+                        echo "<th>" . $ville[$j-1] . "</th>";
                     }elseif ($i >= 1) {
                         echo "<td>" . $matrice[$ville[$i1]][$ville[$j]] . "</td>";
+                    }
+
+                    if ($i == 0 && $j == count($ville)-1) {
+                        echo "<th>". $ville[$j]."</th>";
                     }
                 }
                 echo "</tr>";
