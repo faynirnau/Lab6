@@ -30,6 +30,7 @@
             "Helsinki",
             "Lisbonne"
         ];
+
         $matrice = [];
 
         for ($i = 0; $i < count($ville); $i++) {
@@ -41,9 +42,9 @@
                 if ($i == $j) {
                     $matrice[$ville[$i]][$ville[$j]] = 0;
                 }elseif ($areConnected == 1) {
-                    $matrice[$ville[$i]][$ville[$j]] = random_int(0, 500);
+                    $matrice[$ville[$i]][$ville[$j]] = random_int(1, 500);
                 }elseif ($areConnected == 0) {
-                    $matrice[$ville[$i]][$ville[$j]] = 0;
+                    $matrice[$ville[$i]][$ville[$j]] = "X";
                 }
             }
         }
@@ -53,6 +54,9 @@
                 $matrice[$ville[$j]][$ville[$i]] = $matrice[$ville[$i]][$ville[$j]];
             }
         }
+
+        //find the shortest path
+        
 
     ?>
 
