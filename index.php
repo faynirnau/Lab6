@@ -10,7 +10,7 @@
     <?php
         $ville = [
             "Paris",
-            "Vienna", 
+            "Vienne", 
             "Bratislava",
             "Londres",
             "Berlin",
@@ -19,7 +19,16 @@
             "Lisbonne",
             "Budapest",
             "Varsovie",
-            "Prague"
+            "Prague",
+            "Bucarest",
+            "Sofia",
+            "Athènes",
+            "Amsterdam",
+            "Bruxelles",
+            "Copenhague",
+            "Dublin",
+            "Helsinki",
+            "Lisbonne"
         ];
         $matrice = [];
 
@@ -41,11 +50,7 @@
 
         for ($i = 0; $i < count($ville); $i++) {
             for ($j = 0; $j < count($ville); $j++) {
-                if ($matrice[$ville[$j]][$ville[$i]] == 0) {
-                    $matrice[$ville[$j]][$ville[$i]] = $matrice[$ville[$i]][$ville[$j]];
-                }elseif ($matrice[$ville[$j]][$ville[$i]] != 0) {
-                    $matrice[$ville[$i]][$ville[$j]] = $matrice[$ville[$j]][$ville[$i]];
-                }
+                $matrice[$ville[$j]][$ville[$i]] = $matrice[$ville[$i]][$ville[$j]];
             }
         }
 
